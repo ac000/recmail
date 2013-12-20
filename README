@@ -1,7 +1,7 @@
 Overview
 ========
 
-recmail is a simple utility to receive email, passed to it from a MDA,
+recmail is a simple utility to receive email passed to it from a MDA,
 saving off any mime-parts and also storing a copy of the original message.
 
 
@@ -30,7 +30,7 @@ Then in /etc/aliases add an entry
 Running newaliases after making that change.
 
 
-Whenever email is sent to that address, it is piped through recmail
+Whenever email is sent to that address it is piped through recmail
 
 recmail will look at argv[0] to see who it has been called as (stripping off
 the pathname). It will use this to determine where to store the data.
@@ -43,7 +43,7 @@ There is also an index file created (00INDEX) that links original attachment
 filenames to their part-xxx.obj counterparts.
 
 Multiple messages sent in the same day will be stored under separate UUID/ 
-directories. Where UUID is e.g 33faa523-d10f-4162-9876-ba30476a155c.
+directories, where UUID is e.g 33faa523-d10f-4162-9876-ba30476a155c.
 
 
 You can run recmail manually e.g
