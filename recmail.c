@@ -4,7 +4,7 @@
  * Copyright (C) 2013		PCCL
  * 				Andrew Clayton <andrew@pccl.info>
  *
- * 		 2013		Andrew Clayton <andrew@digital-domain.net>
+ * 		 2013, 2015	Andrew Clayton <andrew@digital-domain.net>
  *
  * Released under the GNU General Public License version 2.
  * See COPYING
