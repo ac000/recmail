@@ -91,7 +91,6 @@ int main(int argc, char **argv)
 	int fd;
 	int err;
 	ssize_t bytes_read;
-	ssize_t bytes_wrote;
 	time_t t = time(NULL);
 	struct tm *tm = localtime(&t);
 	char buf[BUF_SIZE];
@@ -122,6 +121,8 @@ int main(int argc, char **argv)
 	if (fd == -1)
 		exit(EXIT_FAILURE);
 	do {
+		ssize_t bytes_wrote;
+
 		bytes_read = read(STDIN_FILENO, &buf, BUF_SIZE);
 		bytes_wrote = write(fd, buf, bytes_read);
 		if (bytes_wrote != bytes_read)
