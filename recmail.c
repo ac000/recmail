@@ -34,7 +34,8 @@
 /*
  * Process a MIME part of the mail message
  */
-static void process_part(GMimeObject *part)
+static void process_part(GMimeObject *parent, GMimeObject *part,
+			 gpointer user_data)
 {
 	GMimeStream *stream;
 	GMimeDataWrapper *content;
@@ -65,9 +66,9 @@ static void process_part(GMimeObject *part)
  */
 static void process_message(void)
 {
-	GMimeMessage *message;
 	GMimeStream *stream;
 	GMimeParser *parser;
+	GMimeObject *parts;
 	int fd;
 
 	g_mime_init(0);
@@ -75,13 +76,13 @@ static void process_message(void)
 	fd = open("maildata.dat", O_RDONLY);
 	stream = g_mime_stream_fs_new(fd);
 	parser = g_mime_parser_new_with_stream(stream);
-	message = g_mime_parser_construct_message(parser);
-	g_mime_message_foreach_part(message, (GMimePartFunc)process_part, NULL);
+	parts = g_mime_parser_construct_part(parser);
+	g_mime_multipart_foreach((GMimeMultipart *)parts,
+			(GMimeObjectForeachFunc)process_part, NULL);
 
 	close(fd);
-	g_object_unref(stream);
 	g_object_unref(parser);
-	g_object_unref(message);
+	g_object_unref(stream);
 
 	g_mime_shutdown();
 }
