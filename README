@@ -8,12 +8,9 @@ saving off any mime-parts and also storing a copy of the original message.
 Building
 ========
 
-It requires gmime 2.2.x and libuuid, on Fedora, these can be installed via
+It requires gmime 2.6.x and libuuid, on Fedora, these can be installed via
 
-    $ sudo yum install gmime22 gmime22-devel libuuid libuuid-devel
-
-On CentOS etc, there is only gmime 2.6, however the Fedora gmime22 source rpm
-can be built there.
+    $ sudo dnf install gmime gmime-devel libuuid libuuid-devel
 
 To build simply type make
 
