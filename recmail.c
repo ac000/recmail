@@ -34,8 +34,9 @@
 /*
  * Process a MIME part of the mail message
  */
-static void process_part(GMimeObject *parent, GMimeObject *part,
-			 gpointer user_data)
+static void process_part(GMimeObject *parent __attribute__((unused)),
+			 GMimeObject *part,
+			 gpointer user_data __attribute__((unused)))
 {
 	GMimeStream *stream;
 	GMimeDataWrapper *content;
